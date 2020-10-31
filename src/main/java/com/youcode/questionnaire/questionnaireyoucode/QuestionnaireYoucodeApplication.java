@@ -3,6 +3,9 @@ package com.youcode.questionnaire.questionnaireyoucode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author qingsong
+ */
 @SpringBootApplication
 public class QuestionnaireYoucodeApplication {
 
