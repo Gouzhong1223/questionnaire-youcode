@@ -8,6 +8,7 @@ class QuestionnaireYoucodeApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("HelloWorld");
     }
 
 }
