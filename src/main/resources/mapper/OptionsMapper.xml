@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youcode.questionnaire.questionnaireyoucode.mapper.OptionsMapper">
+    <resultMap id="BaseResultMap" type="com.youcode.questionnaire.questionnaireyoucode.entity.Options">
+        <!--@mbg.generated-->
+        <!--@Table tb_options-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="optionValue" jdbcType="VARCHAR" property="optionValue"/>
+        <result column="optionSerial" jdbcType="VARCHAR" property="optionSerial"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, optionValue, optionSerial
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from tb_options
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from tb_options
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Options" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_options (optionValue, optionSerial)
+        values (#{optionValue,jdbcType=VARCHAR}, #{optionSerial,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Options" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_options
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="optionValue != null and optionValue != ''">
+                optionValue,
+            </if>
+            <if test="optionSerial != null and optionSerial != ''">
+                optionSerial,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="optionValue != null and optionValue != ''">
+                #{optionValue,jdbcType=VARCHAR},
+            </if>
+            <if test="optionSerial != null and optionSerial != ''">
+                #{optionSerial,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Options">
+        <!--@mbg.generated-->
+        update tb_options
+        <set>
+            <if test="optionValue != null and optionValue != ''">
+                optionValue = #{optionValue,jdbcType=VARCHAR},
+            </if>
+            <if test="optionSerial != null and optionSerial != ''">
+                optionSerial = #{optionSerial,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Options">
+        <!--@mbg.generated-->
+        update tb_options
+        set optionValue  = #{optionValue,jdbcType=VARCHAR},
+            optionSerial = #{optionSerial,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

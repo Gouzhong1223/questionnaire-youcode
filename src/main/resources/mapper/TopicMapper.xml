@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youcode.questionnaire.questionnaireyoucode.mapper.TopicMapper">
+    <resultMap id="BaseResultMap" type="com.youcode.questionnaire.questionnaireyoucode.entity.Topic">
+        <!--@mbg.generated-->
+        <!--@Table tb_topic-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="topicName" jdbcType="VARCHAR" property="topicName"/>
+        <result column="topicType" jdbcType="INTEGER" property="topicType"/>
+        <result column="topicSerial" jdbcType="INTEGER" property="topicSerial"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, topicName, topicType, topicSerial
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from tb_topic
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from tb_topic
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Topic" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_topic (topicName, topicType, topicSerial)
+        values (#{topicName,jdbcType=VARCHAR}, #{topicType,jdbcType=INTEGER}, #{topicSerial,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Topic" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_topic
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="topicName != null and topicName != ''">
+                topicName,
+            </if>
+            <if test="topicType != null">
+                topicType,
+            </if>
+            <if test="topicSerial != null">
+                topicSerial,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="topicName != null and topicName != ''">
+                #{topicName,jdbcType=VARCHAR},
+            </if>
+            <if test="topicType != null">
+                #{topicType,jdbcType=INTEGER},
+            </if>
+            <if test="topicSerial != null">
+                #{topicSerial,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Topic">
+        <!--@mbg.generated-->
+        update tb_topic
+        <set>
+            <if test="topicName != null and topicName != ''">
+                topicName = #{topicName,jdbcType=VARCHAR},
+            </if>
+            <if test="topicType != null">
+                topicType = #{topicType,jdbcType=INTEGER},
+            </if>
+            <if test="topicSerial != null">
+                topicSerial = #{topicSerial,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Topic">
+        <!--@mbg.generated-->
+        update tb_topic
+        set topicName   = #{topicName,jdbcType=VARCHAR},
+            topicType   = #{topicType,jdbcType=INTEGER},
+            topicSerial = #{topicSerial,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

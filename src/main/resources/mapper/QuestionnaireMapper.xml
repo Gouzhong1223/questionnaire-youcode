@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youcode.questionnaire.questionnaireyoucode.mapper.QuestionnaireMapper">
+    <resultMap id="BaseResultMap" type="com.youcode.questionnaire.questionnaireyoucode.entity.Questionnaire">
+        <!--@mbg.generated-->
+        <!--@Table tb_questionnaire-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="detail" jdbcType="VARCHAR" property="detail"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="createUser" jdbcType="VARCHAR" property="createUser"/>
+        <result column="retract" jdbcType="INTEGER" property="retract"/>
+        <result column="questionsCount" jdbcType="INTEGER" property="questionsCount"/>
+        <result column="endTime" jdbcType="TIMESTAMP" property="endTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, detail, createTime, `createUser`, retract, questionsCount, endTime
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from tb_questionnaire
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from tb_questionnaire
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Questionnaire" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_questionnaire (`name`, detail, createTime,
+                                      `createUser`, retract, questionsCount,
+                                      endTime)
+        values (#{name,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+                #{createUser,jdbcType=VARCHAR}, #{retract,jdbcType=INTEGER}, #{questionsCount,jdbcType=INTEGER},
+                #{endTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Questionnaire" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_questionnaire
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="detail != null and detail != ''">
+                detail,
+            </if>
+            <if test="createTime != null">
+                createTime,
+            </if>
+            <if test="createUser != null and createUser != ''">
+                `createUser`,
+            </if>
+            <if test="retract != null">
+                retract,
+            </if>
+            <if test="questionsCount != null">
+                questionsCount,
+            </if>
+            <if test="endTime != null">
+                endTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="detail != null and detail != ''">
+                #{detail,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null and createUser != ''">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="retract != null">
+                #{retract,jdbcType=INTEGER},
+            </if>
+            <if test="questionsCount != null">
+                #{questionsCount,jdbcType=INTEGER},
+            </if>
+            <if test="endTime != null">
+                #{endTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Questionnaire">
+        <!--@mbg.generated-->
+        update tb_questionnaire
+        <set>
+            <if test="name != null and name != ''">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="detail != null and detail != ''">
+                detail = #{detail,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null and createUser != ''">
+                `createUser` = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="retract != null">
+                retract = #{retract,jdbcType=INTEGER},
+            </if>
+            <if test="questionsCount != null">
+                questionsCount = #{questionsCount,jdbcType=INTEGER},
+            </if>
+            <if test="endTime != null">
+                endTime = #{endTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Questionnaire">
+        <!--@mbg.generated-->
+        update tb_questionnaire
+        set `name`         = #{name,jdbcType=VARCHAR},
+            detail         = #{detail,jdbcType=VARCHAR},
+            createTime     = #{createTime,jdbcType=TIMESTAMP},
+            `createUser`   = #{createUser,jdbcType=VARCHAR},
+            retract        = #{retract,jdbcType=INTEGER},
+            questionsCount = #{questionsCount,jdbcType=INTEGER},
+            endTime        = #{endTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

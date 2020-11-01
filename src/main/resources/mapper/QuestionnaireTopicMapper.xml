@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youcode.questionnaire.questionnaireyoucode.mapper.QuestionnaireTopicMapper">
+    <resultMap id="BaseResultMap" type="com.youcode.questionnaire.questionnaireyoucode.entity.QuestionnaireTopic">
+        <!--@mbg.generated-->
+        <!--@Table tb_questionnaire_topic-->
+        <result column="questionnaireId" jdbcType="INTEGER" property="questionnaireId"/>
+        <result column="topicId" jdbcType="INTEGER" property="topicId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        questionnaireId, topicId
+    </sql>
+    <insert id="insert" parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.QuestionnaireTopic">
+        <!--@mbg.generated-->
+        insert into tb_questionnaire_topic (questionnaireId, topicId)
+        values (#{questionnaireId,jdbcType=INTEGER}, #{topicId,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.QuestionnaireTopic">
+        <!--@mbg.generated-->
+        insert into tb_questionnaire_topic
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="questionnaireId != null">
+                questionnaireId,
+            </if>
+            <if test="topicId != null">
+                topicId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="questionnaireId != null">
+                #{questionnaireId,jdbcType=INTEGER},
+            </if>
+            <if test="topicId != null">
+                #{topicId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+</mapper>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youcode.questionnaire.questionnaireyoucode.mapper.AnswerMapper">
+    <resultMap id="BaseResultMap" type="com.youcode.questionnaire.questionnaireyoucode.entity.Answer">
+        <!--@mbg.generated-->
+        <!--@Table tb_answer-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="answerValue" jdbcType="VARCHAR" property="answerValue"/>
+        <result column="questionnaireId" jdbcType="INTEGER" property="questionnaireId"/>
+        <result column="topicId" jdbcType="INTEGER" property="topicId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, answerValue, questionnaireId, topicId
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from tb_answer
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from tb_answer
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Answer" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_answer (answerValue, questionnaireId, topicId)
+        values (#{answerValue,jdbcType=VARCHAR}, #{questionnaireId,jdbcType=INTEGER}, #{topicId,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Answer" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_answer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="answerValue != null and answerValue != ''">
+                answerValue,
+            </if>
+            <if test="questionnaireId != null">
+                questionnaireId,
+            </if>
+            <if test="topicId != null">
+                topicId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="answerValue != null and answerValue != ''">
+                #{answerValue,jdbcType=VARCHAR},
+            </if>
+            <if test="questionnaireId != null">
+                #{questionnaireId,jdbcType=INTEGER},
+            </if>
+            <if test="topicId != null">
+                #{topicId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Answer">
+        <!--@mbg.generated-->
+        update tb_answer
+        <set>
+            <if test="answerValue != null and answerValue != ''">
+                answerValue = #{answerValue,jdbcType=VARCHAR},
+            </if>
+            <if test="questionnaireId != null">
+                questionnaireId = #{questionnaireId,jdbcType=INTEGER},
+            </if>
+            <if test="topicId != null">
+                topicId = #{topicId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.Answer">
+        <!--@mbg.generated-->
+        update tb_answer
+        set answerValue = #{answerValue,jdbcType=VARCHAR},
+        questionnaireId = #{questionnaireId,jdbcType=INTEGER},
+        topicId = #{topicId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -69,8 +69,8 @@
     <update id="updateByPrimaryKey" parameterType="com.youcode.questionnaire.questionnaireyoucode.entity.AdminUser">
         <!--@mbg.generated-->
         update tb_adminUser
-        set userName   = #{userName,jdbcType=VARCHAR},
-            `password` = #{password,jdbcType=VARCHAR}
+        set userName = #{userName,jdbcType=VARCHAR},
+        `password` = #{password,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
 
