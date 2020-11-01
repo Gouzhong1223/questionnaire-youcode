@@ -1,8 +1,8 @@
 package com.youcode.questionnaire.questionnaireyoucode.mapper;
-import org.apache.ibatis.annotations.Param;
 
 import com.youcode.questionnaire.questionnaireyoucode.entity.AdminUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author : Gouzhong
@@ -65,7 +65,13 @@ public interface AdminUserMapper {
      */
     int updateByPrimaryKey(AdminUser record);
 
-    AdminUser selectOneByUserName(@Param("userName")String userName);
 
+    /**
+     * 根据用户名查询用户
+     *
+     * @param userName 用户名
+     * @return adminUser
+     */
+    AdminUser selectOneByUserName(@Param("userName") String userName);
 
 }

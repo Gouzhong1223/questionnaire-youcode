@@ -34,5 +34,4 @@ public class AdminUserController {
         return adminUserService.adminUserLogin(userName, password);
     }
 
-
 }

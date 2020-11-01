@@ -33,10 +33,14 @@ public class AdminUserServiceImpl implements AdminUserService {
     public RespDto adminUserLogin(String userName, String password) {
         // 去数据库里面根据用户名查询用户
         AdminUser adminUser = adminUserMapper.selectOneByUserName(userName);
-        // 对比密码是否匹配
-        if (!stringEncryptor.decrypt(adminUser.getPassword()).equals(password)) {
-            return RespDto.builder().code(201).message("用户名或密码错误").build();
+        if (adminUser != null) {
+            // 对比密码是否匹配
+            if (!stringEncryptor.decrypt(adminUser.getPassword()).equals(password)) {
+                return RespDto.builder().code(201).message("用户名或密码错误").build();
+            }
+            return RespDto.builder().code(200).message("登陆成功").data(adminUser).build();
         }
-        return RespDto.builder().code(200).message("登陆成功").data(adminUser).build();
+
+        return RespDto.builder().code(201).message("用户不存在").build();
     }
 }

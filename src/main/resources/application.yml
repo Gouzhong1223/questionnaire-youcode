@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: database-dev,cache-dev,mongo
+    active: database-dev,cache-dev
 jasypt:
   encryptor:
     password: youcode
